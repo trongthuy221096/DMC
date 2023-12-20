@@ -37,7 +37,7 @@ public class BillServiceImpl implements BillService {
     public List<BillResponse> getListBillByPhoneNumber(String phoneNumber) {
         User user = userRepository.findUserByPhoneNumber(phoneNumber);
         List<Bill> billList = billRepository.findByUserID(user.getUserID());
-
+        System.out.println("");
         return billList.stream()
                 .map(bill -> mapper.map(bill, BillResponse.class))
                 .collect(Collectors.toList());
